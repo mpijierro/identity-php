@@ -1,28 +1,33 @@
 <?php
 
+declare(strict_types=1);
+
 namespace MPijierro\IdentityPhp;
 
-class Identity
+/**
+ * Check that a string is valid for official document types in Spain
+ *
+ * Class Identity
+ *
+ * @package MPijierro\IdentityPhp
+ */
+final class Identity
 {
-    public function isValidIban($aIbanNumber)
+    public function isValidIBAN(string $aIbanNumber): bool
     {
-
         $iban = new \IBAN();
 
         return $iban->Verify($aIbanNumber);
-
     }
 
-    public function documentIsValid($documentId)
+    /**
+     * Check that CIF string is valid
+     *
+     * @param string $cif
+     * @return bool
+     */
+    public function isValidCIF(string $cif): bool
     {
-
-        return ($this->isValidCif($documentId) OR $this->isValidNif($documentId) OR ($this->isValidNie($documentId)));
-
-    }
-
-    public function isValidCif($cif)
-    {
-
         $cifRegEx1 = '/^[ABEH][0-9]{8}$/i';
         $cifRegEx2 = '/^[KPQS][0-9]{7}[A-J]$/i';
         $cifRegEx3 = '/^[CDFGJLMNRUVW][0-9]{7}[0-9A-J]$/i';
@@ -34,9 +39,10 @@ class Identity
 
             for ($i = 1; $i < 8; $i++) {
                 if ($i % 2 == 0) {
-                    $suma_A += intval($cif[$i]);
+                    $suma_A += (int) $cif[$i];
                 } else {
-                    $t = (intval($cif[$i]) * 2);
+
+                    $t = (string) ((int) $cif[$i] * 2);
                     $p = 0;
 
                     for ($j = 0; $j < strlen($t); $j++) {
@@ -46,8 +52,8 @@ class Identity
                 }
             }
 
-            $suma_C = (intval($suma_A + $suma_B))."";
-            $suma_D = (10 - intval($suma_C[strlen($suma_C) - 1])) % 10;
+            $suma_C = (int) ($suma_A + $suma_B)."";
+            $suma_D = (10 - (int) $suma_C[strlen($suma_C) - 1]) % 10;
 
             $letras = "JABCDEFGHI";
 
@@ -61,7 +67,13 @@ class Identity
         return false;
     }
 
-    public function isValidNif($nif)
+    /**
+     * Check that NIF string is valid
+     *
+     * @param string $nif
+     * @return bool
+     */
+    public function isValidNIF(string $nif): bool
     {
         $nifRegEx = '/^[0-9]{8}[A-Z]$/i';
 
@@ -74,7 +86,13 @@ class Identity
         return false;
     }
 
-    public function isValidNie($nif)
+    /**
+     * * Check that NIE string is valid
+     *
+     * @param string $nif
+     * @return bool
+     */
+    public function isValidNIE(string $nif): bool
     {
         $nieRegEx = '/^[KLMXYZ][0-9]{7}[A-Z]$/i';
         $letras = "TRWAGMYFPDXBNJZSQVHLCKE";
@@ -88,13 +106,5 @@ class Identity
 
         return false;
 
-    }
-
-    public function sanitize($documentId)
-    {
-        $sanitizeDocumentId = trim($documentId);
-        $sanitizeDocumentId = strtoupper($sanitizeDocumentId);
-
-        return preg_replace("/[^A-Za-z0-9]/", "", $sanitizeDocumentId);
     }
 }
