@@ -1,0 +1,29 @@
+{
+  "name": "mpijierro/identity-php",
+  "description": "Check the validation of several types of Spanish documents.",
+  "keywords": ["nif","cif","nie","iban"],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Manu Pijierro",
+      "email": "mpijierro@gmail.com"
+    }
+  ],
+  "require": {
+    "php": ">=7.1",
+    "globalcitizen/php-iban": "^2.5"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^7.5"
+  },
+  "autoload": {
+    "psr-4": {
+      "MPijierro\\IdentityPhp\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "classmap": [
+      "tests/"
+    ]
+  }
+}
