@@ -39,10 +39,10 @@ final class Identity
 
             for ($i = 1; $i < 8; $i++) {
                 if ($i % 2 == 0) {
-                    $suma_A += (int) $cif[$i];
+                    $suma_A += (int)$cif[$i];
                 } else {
 
-                    $t = (string) ((int) $cif[$i] * 2);
+                    $t = (string)((int)$cif[$i] * 2);
                     $p = 0;
 
                     for ($j = 0; $j < strlen($t); $j++) {
@@ -52,8 +52,8 @@ final class Identity
                 }
             }
 
-            $suma_C = (int) ($suma_A + $suma_B)."";
-            $suma_D = (10 - (int) $suma_C[strlen($suma_C) - 1]) % 10;
+            $suma_C = (int)($suma_A + $suma_B) . "";
+            $suma_D = (10 - (int)$suma_C[strlen($suma_C) - 1]) % 10;
 
             $letras = "JABCDEFGHI";
 
