@@ -8,7 +8,7 @@ Check valid spanish document as NIF, CIF, NIE and IBAN back account. This packag
 Install the latest version with:
 
 ```php
-$ composer required "mpijierro/identity-php"
+$ composer require "mpijierro/identity-php"
 ```
 
 ## Usage
