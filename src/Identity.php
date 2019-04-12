@@ -23,7 +23,7 @@ final class Identity
     /**
      * Check that CIF string is valid
      *
-     * @param string $cif
+     * @param  string $cif
      * @return bool
      */
     public function isValidCIF(string $cif): bool
@@ -70,7 +70,7 @@ final class Identity
     /**
      * Check that NIF string is valid
      *
-     * @param string $nif
+     * @param  string $nif
      * @return bool
      */
     public function isValidNIF(string $nif): bool
@@ -89,7 +89,7 @@ final class Identity
     /**
      * * Check that NIE string is valid
      *
-     * @param string $nif
+     * @param  string $nif
      * @return bool
      */
     public function isValidNIE(string $nif): bool
