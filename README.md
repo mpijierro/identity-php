@@ -1,3 +1,5 @@
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/mpijierro/identity-php/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/mpijierro/identity-php/?branch=master) [![Build Status](https://scrutinizer-ci.com/g/mpijierro/identity-php/badges/build.png?b=master)](https://scrutinizer-ci.com/g/mpijierro/identity-php/build-status/master) [![Code Intelligence Status](https://scrutinizer-ci.com/g/mpijierro/identity-php/badges/code-intelligence.svg?b=master)](https://scrutinizer-ci.com/code-intelligence)
+
 # IdentityPhp
 
 Check valid spanish document as NIF, CIF, NIE and IBAN back account. This package is a simplied
